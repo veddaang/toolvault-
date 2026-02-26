@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D2C Unit Economics Calculator — Free Online Tool | ToolVault</title>
+  <meta name="description" content="Free D2C unit economics calculator. Calculate gross margin, contribution margin, net profit, breakeven units, CAC, and LTV for your direct-to-consumer business. No signup required.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolvault.com/tools/d2c-calculator/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="D2C Unit Economics Calculator — Free Online Tool">
+  <meta property="og:description" content="Calculate margins, breakeven, CAC, and profitability for your D2C business. Free, instant, no signup.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolvault.com/tools/d2c-calculator/">
+  <meta property="og:site_name" content="ToolVault">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="D2C Unit Economics Calculator — Free Online Tool">
+  <meta name="twitter:description" content="Calculate margins, breakeven, CAC, and profitability for your D2C business.">
+
+  <link rel="stylesheet" href="../../style.css">
+
+  <!-- Schema.org WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "D2C Unit Economics Calculator",
+    "url": "https://toolvault.com/tools/d2c-calculator/",
+    "description": "Calculate gross margin, contribution margin, net profit per unit, breakeven units, CAC, and LTV for direct-to-consumer businesses.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "browserRequirements": "Requires JavaScript",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "ToolVault",
+      "url": "https://toolvault.com/"
+    }
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is unit economics?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Unit economics measures the revenue and costs associated with a single unit of your product. It helps you understand whether each sale is profitable and how many units you need to sell to cover fixed costs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a good gross margin for a D2C brand?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most successful D2C brands target a gross margin of 60-80%. Below 50% makes it very difficult to cover marketing, operations, and overhead costs while remaining profitable."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between gross margin and contribution margin?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gross margin only accounts for the cost of goods sold (COGS). Contribution margin goes further by also subtracting variable costs like shipping, packaging, marketplace commissions, payment gateway fees, and marketing spend per unit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I calculate breakeven units?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Breakeven units = Fixed Costs per Month / Contribution Margin per Unit. This tells you how many units you need to sell each month just to cover your fixed costs (rent, salaries, software, etc.)."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav-container">
+      <a href="/" class="site-logo">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="28" height="28" rx="6" fill="#6366F1"/>
+          <path d="M8 10h12M8 14h8M8 18h10" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        ToolVault
+      </a>
+      <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools/d2c-calculator/" class="active">D2C Calculator</a></li>
+        <li><a href="/tools/gst-calculator/">GST Calculator</a></li>
+        <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <div class="tool-page-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">Home</a> &rsaquo; <a href="/">Tools</a> &rsaquo; D2C Calculator
+      </div>
+      <h1>D2C Unit Economics Calculator</h1>
+      <p>Calculate margins, breakeven units, CAC, and net profitability for your direct-to-consumer business.</p>
+    </div>
+  </div>
+
+  <!-- AD SLOT -->
+
+  <div class="tool-content">
+    <div class="tool-layout">
+      <div class="tool-main">
+
+        <!-- CALCULATOR -->
+        <div class="tool-box" id="calculator">
+          <h2>Enter Your Numbers</h2>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="selling-price">Selling Price (per unit) <span class="hint">INR</span></label>
+              <input type="number" id="selling-price" placeholder="e.g. 999" min="0" step="0.01">
+            </div>
+            <div class="form-group">
+              <label for="cogs">Cost of Goods Sold (COGS) <span class="hint">per unit</span></label>
+              <input type="number" id="cogs" placeholder="e.g. 250" min="0" step="0.01">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="shipping-cost">Shipping Cost <span class="hint">per unit</span></label>
+              <input type="number" id="shipping-cost" placeholder="e.g. 60" min="0" step="0.01">
+            </div>
+            <div class="form-group">
+              <label for="packaging-cost">Packaging Cost <span class="hint">per unit</span></label>
+              <input type="number" id="packaging-cost" placeholder="e.g. 20" min="0" step="0.01">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="marketplace-commission">Marketplace Commission <span class="hint">%</span></label>
+              <input type="number" id="marketplace-commission" placeholder="e.g. 15" min="0" max="100" step="0.1">
+            </div>
+            <div class="form-group">
+              <label for="payment-gateway">Payment Gateway Fee <span class="hint">%</span></label>
+              <input type="number" id="payment-gateway" placeholder="e.g. 2" min="0" max="100" step="0.1">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="return-rate">Return Rate <span class="hint">%</span></label>
+              <input type="number" id="return-rate" placeholder="e.g. 10" min="0" max="100" step="0.1">
+            </div>
+            <div class="form-group">
+              <label for="marketing-spend">Marketing Spend <span class="hint">per unit</span></label>
+              <input type="number" id="marketing-spend" placeholder="e.g. 100" min="0" step="0.01">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fixed-costs">Fixed Costs <span class="hint">per month (rent, salaries, etc.)</span></label>
+              <input type="number" id="fixed-costs" placeholder="e.g. 50000" min="0" step="0.01">
+            </div>
+            <div class="form-group">
+              <label for="units-sold">Units Sold <span class="hint">per month</span></label>
+              <input type="number" id="units-sold" placeholder="e.g. 500" min="0" step="1">
+            </div>
+          </div>
+
+          <div class="btn-group mt-16">
+            <button class="btn btn-primary" onclick="calculate()">Calculate Unit Economics</button>
+            <button class="btn btn-secondary" onclick="clearForm()">Clear</button>
+          </div>
+        </div>
+
+        <!-- RESULTS -->
+        <div class="tool-box" id="results" style="display:none;">
+          <h2>Results</h2>
+          <div class="results-grid" id="results-grid">
+            <!-- Populated by JS -->
+          </div>
+
+          <!-- BREAKDOWN TABLE -->
+          <h3 style="margin-top:24px; font-size:1rem; font-weight:600;">Per-Unit Breakdown</h3>
+          <table class="data-table" id="breakdown-table" style="margin-top:12px;">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th style="text-align:right;">Amount</th>
+              </tr>
+            </thead>
+            <tbody id="breakdown-body">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- AD SLOT -->
+
+        <!-- WHAT IS UNIT ECONOMICS -->
+        <div class="content-section">
+          <h2>What is Unit Economics?</h2>
+          <p>Unit economics is the fundamental financial analysis of revenue and costs associated with a single unit of your product or service. For direct-to-consumer (D2C) businesses, understanding unit economics is critical because it tells you whether your business model is viable at scale.</p>
+          <p>If your unit economics are positive, every additional sale makes you more profitable. If they are negative, selling more units actually increases your losses. Many startups fail because they scale a business with broken unit economics, hoping volume will fix the problem (it usually doesn't).</p>
+
+          <h3>Key Metrics Explained</h3>
+          <ul>
+            <li><strong>Gross Margin:</strong> Revenue minus COGS. This is your most basic profitability metric, showing how much you earn after manufacturing or sourcing costs.</li>
+            <li><strong>Contribution Margin:</strong> Revenue minus all variable costs (COGS, shipping, packaging, commissions, payment fees, marketing, returns). This tells you how much each unit contributes toward covering your fixed costs.</li>
+            <li><strong>Net Profit Per Unit:</strong> Contribution margin minus the per-unit allocation of fixed costs. Your true per-unit profit.</li>
+            <li><strong>Breakeven Units:</strong> The number of units you must sell each month to cover all fixed costs. Below this number, you are losing money.</li>
+            <li><strong>CAC (Customer Acquisition Cost):</strong> How much you spend in marketing to acquire one customer.</li>
+            <li><strong>LTV (Lifetime Value):</strong> An estimate of the total revenue a customer generates over their lifetime. A healthy business has LTV that is at least 3x CAC.</li>
+          </ul>
+        </div>
+
+        <!-- HOW TO USE -->
+        <div class="content-section">
+          <h2>How to Use This Calculator</h2>
+          <ol>
+            <li><strong>Enter your selling price:</strong> The price at which you sell one unit of your product to the customer.</li>
+            <li><strong>Enter COGS:</strong> Your cost of goods sold, including manufacturing, raw materials, and labor per unit.</li>
+            <li><strong>Add variable costs:</strong> Shipping, packaging, marketplace commission percentage, and payment gateway fees.</li>
+            <li><strong>Enter your return rate:</strong> The percentage of orders that get returned. Returns cost you the shipping + product cost with no revenue.</li>
+            <li><strong>Add marketing spend per unit:</strong> Your total marketing budget divided by units sold, or your target CAC.</li>
+            <li><strong>Enter fixed costs:</strong> Monthly overhead like rent, salaries, software subscriptions, etc.</li>
+            <li><strong>Enter units sold per month:</strong> Your actual or projected monthly sales volume.</li>
+            <li><strong>Click Calculate:</strong> See your complete unit economics breakdown.</li>
+          </ol>
+        </div>
+
+        <!-- FORMULAS -->
+        <div class="content-section">
+          <h2>Formulas Used</h2>
+          <p>Here are the exact formulas this calculator uses:</p>
+
+          <h3>Gross Margin Per Unit</h3>
+          <div class="formula-box">
+            Gross Margin = Selling Price - COGS
+          </div>
+
+          <h3>Variable Costs Per Unit</h3>
+          <div class="formula-box">
+            Variable Costs = Shipping + Packaging + (Selling Price x Commission%) + (Selling Price x Gateway Fee%) + Marketing Spend
+          </div>
+
+          <h3>Return Cost Per Unit</h3>
+          <div class="formula-box">
+            Return Cost = (COGS + Shipping) x Return Rate%
+          </div>
+
+          <h3>Contribution Margin Per Unit</h3>
+          <div class="formula-box">
+            Contribution Margin = Selling Price - COGS - Variable Costs - Return Cost
+          </div>
+
+          <h3>Net Profit Per Unit</h3>
+          <div class="formula-box">
+            Net Profit Per Unit = Contribution Margin - (Fixed Costs / Units Sold)
+          </div>
+
+          <h3>Breakeven Units</h3>
+          <div class="formula-box">
+            Breakeven Units = Fixed Costs / Contribution Margin
+          </div>
+
+          <h3>Monthly Profit</h3>
+          <div class="formula-box">
+            Monthly Profit = (Contribution Margin x Units Sold) - Fixed Costs
+          </div>
+
+          <h3>LTV Estimate</h3>
+          <div class="formula-box">
+            LTV = Contribution Margin x Average Orders Per Customer (estimated at 3)
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="content-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                What is a good gross margin for a D2C brand?
+              </button>
+              <div class="faq-answer">
+                <p>Most successful D2C brands target a gross margin of 60-80%. Below 50% makes it very difficult to cover marketing, operations, and overhead costs while remaining profitable. Premium brands often achieve 70%+ margins. If your gross margin is below 40%, you should seriously reconsider your pricing or COGS structure.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                What is the difference between gross margin and contribution margin?
+              </button>
+              <div class="faq-answer">
+                <p>Gross margin only accounts for the cost of goods sold (COGS). Contribution margin goes further by also subtracting variable costs like shipping, packaging, marketplace commissions, payment gateway fees, and marketing spend per unit. Contribution margin is the more realistic measure of per-unit profitability for D2C businesses.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                How do I calculate breakeven units?
+              </button>
+              <div class="faq-answer">
+                <p>Breakeven units = Fixed Costs per Month / Contribution Margin per Unit. This tells you how many units you need to sell each month just to cover your fixed costs (rent, salaries, software, etc.). For example, if your fixed costs are INR 50,000/month and your contribution margin is INR 200/unit, you need to sell 250 units per month to break even.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                What should my LTV to CAC ratio be?
+              </button>
+              <div class="faq-answer">
+                <p>A healthy LTV:CAC ratio is at least 3:1. This means the lifetime value of a customer should be at least three times what you spent to acquire them. Below 3:1, your business may not be sustainable. Above 5:1 may indicate you are underinvesting in growth. The ideal sweet spot for scaling D2C brands is typically 3:1 to 4:1.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                How does return rate affect unit economics?
+              </button>
+              <div class="faq-answer">
+                <p>Returns are a hidden profit killer. When a customer returns a product, you lose the shipping cost and often cannot resell the product. A 20% return rate effectively reduces your revenue by 20% while maintaining most of your costs. Apparel brands commonly see 15-30% return rates, which is why they need higher gross margins to remain viable.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RELATED TOOLS -->
+        <div class="content-section">
+          <h2>Related Tools</h2>
+          <div class="related-tools">
+            <a href="/tools/gst-calculator/" class="related-tool-link">
+              <div class="rt-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="10" y1="3" x2="10" y2="9"/></svg>
+              </div>
+              <div>
+                <div class="rt-name">GST Calculator</div>
+                <div class="rt-desc">Add or remove GST instantly</div>
+              </div>
+            </a>
+            <a href="/tools/json-formatter/" class="related-tool-link">
+              <div class="rt-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div>
+                <div class="rt-name">JSON Formatter</div>
+                <div class="rt-desc">Format and validate JSON data</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="tool-sidebar">
+        <!-- AD SLOT -->
+        <div class="ad-slot">Ad Slot — Sidebar</div>
+
+        <div class="sidebar-box">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="/tools/gst-calculator/">GST Calculator</a></li>
+            <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+          </ul>
+        </div>
+
+        <!-- AD SLOT -->
+        <div class="ad-slot">Ad Slot — Sidebar Bottom</div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- AD SLOT -->
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="/" class="site-logo">
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
+            <rect width="28" height="28" rx="6" fill="#6366F1"/>
+            <path d="M8 10h12M8 14h8M8 18h10" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          ToolVault
+        </a>
+        <p>Free, fast, privacy-friendly online tools. No signup required.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="/tools/d2c-calculator/">D2C Calculator</a></li>
+          <li><a href="/tools/gst-calculator/">GST Calculator</a></li>
+          <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 ToolVault. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

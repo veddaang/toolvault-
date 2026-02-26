@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Formatter & Validator — Free Online Tool | ToolVault</title>
+  <meta name="description" content="Free online JSON formatter, beautifier, and validator. Format, minify, and validate JSON with syntax highlighting and error detection. No signup required.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolvault.com/tools/json-formatter/">
+
+  <meta property="og:title" content="JSON Formatter & Validator — Free Online Tool">
+  <meta property="og:description" content="Format, beautify, minify, and validate JSON data with syntax highlighting. Free, instant, no signup.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolvault.com/tools/json-formatter/">
+  <meta property="og:site_name" content="ToolVault">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="JSON Formatter & Validator — Free Online Tool">
+  <meta name="twitter:description" content="Format, validate, and beautify JSON data with syntax highlighting.">
+
+  <link rel="stylesheet" href="../../style.css">
+
+  <!-- Schema.org WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "JSON Formatter & Validator",
+    "url": "https://toolvault.com/tools/json-formatter/",
+    "description": "Format, beautify, minify, and validate JSON data with syntax highlighting, line numbers, and error detection.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "browserRequirements": "Requires JavaScript",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "ToolVault",
+      "url": "https://toolvault.com/"
+    }
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is JSON?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "JSON (JavaScript Object Notation) is a lightweight data interchange format that is easy for humans to read and write, and easy for machines to parse and generate. It is based on a subset of JavaScript but is language-independent. JSON is the most common format for APIs and web services."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I validate JSON?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Paste your JSON into the input area and click Format. The validator will check the syntax and display either a 'Valid JSON' badge or an 'Invalid JSON' badge with the specific error message and position where the error was found."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between JSON format and minify?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Formatting (beautifying) adds indentation and line breaks to make JSON human-readable. Minifying removes all unnecessary whitespace to make the JSON as compact as possible, which is useful for reducing file size in production environments."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav-container">
+      <a href="/" class="site-logo">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="28" height="28" rx="6" fill="#6366F1"/>
+          <path d="M8 10h12M8 14h8M8 18h10" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        ToolVault
+      </a>
+      <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools/d2c-calculator/">D2C Calculator</a></li>
+        <li><a href="/tools/gst-calculator/">GST Calculator</a></li>
+        <li><a href="/tools/json-formatter/" class="active">JSON Formatter</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="tool-page-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">Home</a> &rsaquo; <a href="/">Tools</a> &rsaquo; JSON Formatter
+      </div>
+      <h1>JSON Formatter & Validator</h1>
+      <p>Format, beautify, minify, and validate JSON data with syntax highlighting and error detection.</p>
+    </div>
+  </div>
+
+  <!-- AD SLOT -->
+
+  <div class="tool-content">
+    <div class="tool-layout">
+      <div class="tool-main">
+
+        <!-- INPUT -->
+        <div class="tool-box" id="json-tool">
+          <h2>Paste Your JSON</h2>
+          <div class="form-group">
+            <textarea id="json-input" placeholder='{"name": "ToolVault", "type": "website", "tools": ["D2C Calculator", "GST Calculator", "JSON Formatter"]}' rows="10"></textarea>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+            <div class="btn-group">
+              <button class="btn btn-primary" onclick="formatJSON()">Format / Beautify</button>
+              <button class="btn btn-secondary" onclick="minifyJSON()">Minify</button>
+              <button class="btn btn-secondary" onclick="validateOnly()">Validate</button>
+              <button class="btn btn-secondary" onclick="copyOutput()">Copy</button>
+              <button class="btn btn-secondary" onclick="clearAll()">Clear</button>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <label for="tab-size" style="font-size:0.85rem;color:var(--text-muted);white-space:nowrap;">Tab size:</label>
+              <select id="tab-size" style="width:auto;padding:6px 10px;" onchange="reformat()">
+                <option value="2" selected>2 spaces</option>
+                <option value="4">4 spaces</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- STATUS BAR -->
+        <div class="status-bar mb-24" id="status-bar" style="display:none;">
+          <div class="status-left">
+            <span id="validation-badge"></span>
+            <span id="error-message" style="font-size:0.8rem;color:var(--red);"></span>
+          </div>
+          <div class="status-right">
+            <span id="char-count"></span>
+            <span id="line-count"></span>
+          </div>
+        </div>
+
+        <!-- OUTPUT -->
+        <div class="tool-box" id="output-box" style="display:none;">
+          <h2>Formatted Output</h2>
+          <div class="json-output" id="json-output"></div>
+        </div>
+
+        <!-- AD SLOT -->
+
+        <!-- WHAT IS JSON -->
+        <div class="content-section">
+          <h2>What is JSON?</h2>
+          <p>JSON (JavaScript Object Notation) is a lightweight data interchange format that is easy for humans to read and write, and easy for machines to parse and generate. Despite its name, JSON is language-independent and is used by virtually every modern programming language.</p>
+          <p>JSON is the de facto standard for data exchange on the web. REST APIs, configuration files, databases (like MongoDB), and message queues all commonly use JSON. It was derived from JavaScript but has become its own specification defined in <a href="https://www.rfc-editor.org/rfc/rfc8259" target="_blank" rel="noopener">RFC 8259</a>.</p>
+
+          <h3>JSON Data Types</h3>
+          <ul>
+            <li><strong>String:</strong> Text wrapped in double quotes: <code>"hello"</code></li>
+            <li><strong>Number:</strong> Integer or floating point: <code>42</code>, <code>3.14</code></li>
+            <li><strong>Boolean:</strong> <code>true</code> or <code>false</code></li>
+            <li><strong>Null:</strong> <code>null</code></li>
+            <li><strong>Object:</strong> Key-value pairs in curly braces: <code>{"key": "value"}</code></li>
+            <li><strong>Array:</strong> Ordered list in square brackets: <code>[1, 2, 3]</code></li>
+          </ul>
+
+          <h3>Common JSON Mistakes</h3>
+          <ul>
+            <li>Using single quotes instead of double quotes for strings.</li>
+            <li>Trailing commas after the last item in an object or array.</li>
+            <li>Using comments (JSON does not support comments).</li>
+            <li>Using unquoted keys.</li>
+            <li>Including <code>undefined</code> or functions (not valid JSON values).</li>
+          </ul>
+        </div>
+
+        <!-- HOW TO USE -->
+        <div class="content-section">
+          <h2>How to Use This Tool</h2>
+          <ol>
+            <li><strong>Paste your JSON:</strong> Copy your raw JSON data into the input textarea.</li>
+            <li><strong>Click Format:</strong> Beautifies the JSON with proper indentation and syntax highlighting.</li>
+            <li><strong>Click Minify:</strong> Removes all whitespace for a compact, single-line output.</li>
+            <li><strong>Click Validate:</strong> Checks if the JSON is valid without formatting it.</li>
+            <li><strong>Copy:</strong> Copies the formatted or minified output to your clipboard.</li>
+            <li><strong>Tab size:</strong> Choose between 2-space or 4-space indentation.</li>
+          </ol>
+          <p>The tool shows a validation badge (Valid/Invalid), character count, and line count. If the JSON is invalid, it shows the error message with the position of the error.</p>
+        </div>
+
+        <!-- FAQ -->
+        <div class="content-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                What is the difference between formatting and minifying JSON?
+              </button>
+              <div class="faq-answer">
+                <p>Formatting (beautifying) adds indentation and line breaks to make JSON human-readable. This is useful for debugging, code review, and understanding data structures. Minifying removes all unnecessary whitespace (spaces, tabs, newlines) to create the most compact representation, which is useful for reducing payload size in APIs and configuration files.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Is my JSON data safe when using this tool?
+              </button>
+              <div class="faq-answer">
+                <p>Yes, completely. This tool runs 100% in your browser using JavaScript. Your JSON data is never sent to any server. It is processed locally on your device. When you close or refresh the page, the data is gone. You can verify this by disconnecting from the internet and using the tool — it will work exactly the same.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Why is my JSON invalid?
+              </button>
+              <div class="faq-answer">
+                <p>Common reasons for invalid JSON: (1) Using single quotes instead of double quotes for strings. (2) Trailing commas after the last item. (3) Comments in the JSON (not allowed). (4) Unquoted property names. (5) Using JavaScript values like <code>undefined</code>, <code>NaN</code>, or <code>Infinity</code>. The error message shows the exact position where the parser found the problem.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                Can I format large JSON files?
+              </button>
+              <div class="faq-answer">
+                <p>Yes, this tool can handle reasonably large JSON files (up to several MB). However, extremely large files may cause your browser to slow down since all processing happens in the browser. For files larger than 10MB, consider using a desktop tool like VS Code or jq on the command line.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                What is JSON used for?
+              </button>
+              <div class="faq-answer">
+                <p>JSON is used for: (1) API communication between clients and servers. (2) Configuration files (package.json, tsconfig.json). (3) Data storage in NoSQL databases like MongoDB and CouchDB. (4) Data exchange between microservices. (5) Storing user preferences and settings. (6) Log formatting for structured logging systems.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RELATED TOOLS -->
+        <div class="content-section">
+          <h2>Related Tools</h2>
+          <div class="related-tools">
+            <a href="/tools/d2c-calculator/" class="related-tool-link">
+              <div class="rt-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <div>
+                <div class="rt-name">D2C Unit Economics Calculator</div>
+                <div class="rt-desc">Calculate margins and breakeven</div>
+              </div>
+            </a>
+            <a href="/tools/gst-calculator/" class="related-tool-link">
+              <div class="rt-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="10" y1="3" x2="10" y2="9"/></svg>
+              </div>
+              <div>
+                <div class="rt-name">GST Calculator</div>
+                <div class="rt-desc">Add or remove GST instantly</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="tool-sidebar">
+        <!-- AD SLOT -->
+        <div class="ad-slot">Ad Slot — Sidebar</div>
+
+        <div class="sidebar-box">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#json-tool">Formatter</a></li>
+            <li><a href="/tools/d2c-calculator/">D2C Calculator</a></li>
+            <li><a href="/tools/gst-calculator/">GST Calculator</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-box">
+          <h3>Sample JSON</h3>
+          <ul>
+            <li><a href="#" onclick="loadSample('simple');return false;">Simple Object</a></li>
+            <li><a href="#" onclick="loadSample('nested');return false;">Nested Object</a></li>
+            <li><a href="#" onclick="loadSample('array');return false;">Array of Objects</a></li>
+          </ul>
+        </div>
+
+        <!-- AD SLOT -->
+        <div class="ad-slot">Ad Slot — Sidebar Bottom</div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- AD SLOT -->
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="/" class="site-logo">
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
+            <rect width="28" height="28" rx="6" fill="#6366F1"/>
+            <path d="M8 10h12M8 14h8M8 18h10" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          ToolVault
+        </a>
+        <p>Free, fast, privacy-friendly online tools. No signup required.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="/tools/d2c-calculator/">D2C Calculator</a></li>
+          <li><a href="/tools/gst-calculator/">GST Calculator</a></li>
+          <li><a href="/tools/json-formatter/">JSON Formatter</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 ToolVault. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
